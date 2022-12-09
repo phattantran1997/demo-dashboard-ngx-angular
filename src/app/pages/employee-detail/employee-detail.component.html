@@ -1,0 +1,25 @@
+<nb-card size="giant">
+  <nb-card-header>Employee-detail on {{ this.date }}</nb-card-header>
+  <nb-card-body>
+    <p>Click the button to sort the table alphabetically, by name:</p>
+    <p><button (click)="sortTable()">Sort by job time</button></p>
+    <table>
+      <tr style="color: brown">
+        <th *ngFor="let i of this.columnDefs">{{ i.toUpperCase() }}</th>
+      </tr>
+      <tr *ngFor="let item of this.rowData">
+        <td>{{ item.jobno }}</td>
+        <td>{{ item.operatorID }}</td>
+        <td>{{ item.jobday }}</td>
+        <td>{{ item.jobtime }}</td>
+        <td>{{ item.stationNo }}</td>
+        <td>{{ item.duration }}</td>
+        <td>{{ item.filename }}</td>
+        <td>{{ item.handle }}</td>
+        <td>{{ item.itemno }}</td>
+        <td>{{ item.stationName }}</td>
+        <td>{{ item.stationStatus }}</td>
+      </tr>
+    </table>
+  </nb-card-body>
+</nb-card>

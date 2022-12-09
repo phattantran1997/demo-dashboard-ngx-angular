@@ -1,0 +1,43 @@
+
+.job-card {
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  height: 13rem !important;
+
+  .job-label-selected {
+    text-transform: uppercase;
+    text-align: center;
+    color: white;
+  }
+  
+  .job-label {
+    text-transform: uppercase;
+    text-align: center;
+  }
+  
+  .job-body {
+    word-break: break-all;
+  }
+  
+  .job-detail {
+    font-size: 14px;
+    font-weight: bolder;
+
+    span {
+      font-size: 14px;
+      color: #969799;
+      font-weight: normal;
+    }
+  }
+
+  .job-path {
+    font-size: 14px;
+    color:  #969799;
+  }
+}
+
+.selected-job{
+  background-color: #367BF5;
+}
+
+

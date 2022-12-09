@@ -1,0 +1,24 @@
+<div class="station-container">
+  <nb-card
+    [ngClass]="{'station-card': !isHeaderStation, 'station-card-total': isHeaderStation}"
+    *ngFor="let station of stations"
+    ngDefaultControl
+    [(ngModel)]="stationNoSelected"
+    [attr.data-station]="station.stationNo"
+    (click)="selectedStationEvent(station)"
+    [class.selected-station]="stationNoSelected == station.stationNo"
+    [class.station-not-default-theme]="currentTheme !== 'default' && currentTheme !== 'corporate' && stationNoSelected !== station.stationNo && !isHeaderStation"
+  >
+    <nb-card-body [ngClass]="{'station-body': !isHeaderStation, 'station-body-total': isHeaderStation}" >
+      <p class="station-name text-left" 
+      [class.station-name-total]="isHeaderStation"
+      [class.selected-station-name]="!isHeaderStation && stationNoSelected == station.stationNo">
+        {{ station.stationName }}
+      </p>
+      <div class="station-item"
+      [class.item-bottom]="station.stationName.length < 15 && !isHeaderStation">
+        <p *ngIf="!isHeaderStation" class="duration">{{station.totalDuration}}</p>
+      </div>
+    </nb-card-body>
+  </nb-card>
+</div>

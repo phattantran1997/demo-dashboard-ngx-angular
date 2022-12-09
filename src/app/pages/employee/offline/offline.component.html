@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row user-card" *ngFor="let user of offlines" [ngStyle]="{'margin-top':'10px'}" 
+    
+    >
+      <div class="col-6 col-xs-12 text-center">
+        <img
+          height="100"
+          width="100"
+          class="card-img-left img-thumbnail rounded"
+          src="../../../../assets/images/alan.png"
+          alt="Card image cap"
+        />
+        <h6>User name: {{user.username}}</h6>
+      </div>
+      <div class="col-6 col-xs-12">
+        <p>Name: {{user.name}}</p>
+        <p>Company: <b>{{user.company}}</b></p>
+        <p>Country: {{user.country}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+

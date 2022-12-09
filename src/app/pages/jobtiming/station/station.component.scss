@@ -1,0 +1,110 @@
+.station-container {
+  overflow-x: auto;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.station-not-default-theme {
+  background-color: unset !important;
+}
+
+.station-card {
+  height: 146px;
+  margin: 0 5px;
+  flex: 1 1 0;
+  min-width: 235px;
+  border-radius: 10px;
+  background-color: #f8f9fb;
+}
+
+.station-card-total {
+  height: 50px;
+  margin: 0 5px;
+  flex: 1 1 0;
+  min-width: fit-content;
+  border: 0.0625rem solid 367BF5;
+  border-radius: 10px;
+}
+
+.station-body-total {
+  padding-top: 11px;
+  overflow-y: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  background: #367BF5;
+  border-radius: 10px;
+}
+
+.station-body {
+  // display: flex;
+  // flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  align-content: flex-end;
+}
+
+.station-item {
+  font-size: 25px;
+  text-align: center;
+}
+
+.station-name {
+  font-weight: bolder;
+  font-size: 22px;
+  line-height: initial;
+}
+
+.selected-station-name {
+  font-weight: bolder;
+  font-size: 22px;
+  line-height: initial;
+  color:white;
+}
+
+.station-name-total{
+  font-weight: normal;
+  font-size: 18px;
+  line-height: initial;
+  color:white;
+}
+
+.selected-station {
+  background: #367BF5;
+  border-radius: 10px;
+}
+
+.station-container::-webkit-scrollbar-track
+{
+	box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+
+.station-container::-webkit-scrollbar
+{
+	width: 6px;
+	height: 6px;
+	background-color: #F5F5F5;
+}
+
+.station-container::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #555;
+}
+
+.duration {
+  font-size: 23px; 
+  color: #02b531;
+  font-weight: bolder;
+  text-align: left;
+}
+
+.item-bottom {
+  display: flex;
+  height: 66px;
+  align-items: flex-end;
+}

@@ -1,0 +1,22 @@
+<nb-card size="large" class="border-0">
+      <nb-card size="small" 
+      class="job-card"
+      *ngFor="let job of m2data"
+      (click)="select(job)"
+      [class.selected-job]="selectedJob == job.jobNO">
+        <nb-card-body class="job-body">
+          <div class="job-item">
+            <h5 class="job-label" [class.job-label-selected]="selectedJob == job.jobNO">{{ job.jobNO? job.jobNO : 'Unknown' }}</h5>
+            <span class="job-detail">Meta: 
+              <span>{{ job.meta_m2 }}</span>
+            </span>
+            <br />
+            <span class="job-detail">Insulation: 
+              <span>{{ job.isu_2 }}</span>
+            </span>
+            <br />
+            <span class="job-path">{{ job.pathID }}</span>
+          </div>
+        </nb-card-body>
+      </nb-card>
+</nb-card>

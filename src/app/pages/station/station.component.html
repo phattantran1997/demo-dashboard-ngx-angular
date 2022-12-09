@@ -1,0 +1,125 @@
+<nb-card size="giant" class="h-100">
+  <nb-card-header> 
+    <div class="row">
+      <div class="col-8 col-xl-6 col-lg-6 col-md-6 col-sm-4 align-self-center">
+        Station
+      </div>
+
+      <div class="col-4 col-xl-6 col-lg-6 col-md-6 col-sm-8 text-right">
+        <button nbButton class="mr-3 button-box">
+          <nb-icon icon="cast-outline"></nb-icon> 
+          <span class="primary-color">CASTING</span>
+        </button>
+        <button nbButton class="button-box" (click)="filterRangeDate()">
+          <nb-icon icon="sync"></nb-icon> 
+          <span class="primary-color">REFRESH</span>
+        </button>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-header class="two-inputs row justify-content-end">
+    <div class="row overflow-hidden">
+      <div class="col-6 p-0">
+        <div class="date-picker">
+          Start
+          <nb-icon icon="calendar-outline"></nb-icon>|&nbsp;
+        </div>
+        <input
+          class="w-90 pl-6r"
+          nbInput
+          placeholder="Pick Date"
+          [nbDatepicker]="fromdatecontrol"
+          [(ngModel)]="fromDateControl"
+        />
+        <nb-datepicker #fromdatecontrol></nb-datepicker>
+      </div>
+      <div class="col-6 p-0">
+        <div class="date-picker">
+        End
+        <nb-icon icon="calendar-outline"></nb-icon>|&nbsp;
+        </div>
+        <input
+          class="w-90 pl-6r"
+          nbInput
+          placeholder="Form Picker"
+          [nbDatepicker]="todatecontrol"
+          [(ngModel)]="toDateControl"
+        />
+        <nb-datepicker #todatecontrol></nb-datepicker>
+      </div>
+
+      <!-- <div class="col-2 p-0">
+        <button nbButton (click)="filterRangeDate()">Filter</button>
+      </div> -->
+    </div>
+  </nb-card-header>
+  <nb-card-header class="card-header-box">
+    <div class="row">
+      <div class="col-xxl-4 col-xl-3 col-lg-3 col-md-12 col-sm-12 align-self-center">
+        <h5>Rate of production (m2/min)</h5>
+      </div>
+
+      <div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-12"
+      [class.text-right]="scrWidth > 992"
+      [class.mb-3]="scrWidth < 768">
+        <span class="mr-3">SORT BY:</span>
+
+        <button nbButton class="mr-3 button-box">
+          <img src="../../../assets/icon/snail.png" width="20" height="20">
+          <span class="primary-color">&nbsp; SLOW</span>
+        </button>
+        <button nbButton class="button-box">
+          <img src="../../../assets/icon/clock.png" width="20" height="20">
+          <span class="primary-color">&nbsp; FAST</span>
+        </button>
+      </div>
+
+      <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-5 col-sm-12 text-right">
+        <button nbButton class="mr-1">
+          <span class="primary-color">VIEW ALL</span>
+        </button>
+        
+        <button nbButton class="mr-1">
+          <nb-icon icon="settings-2-outline"></nb-icon> 
+        </button>
+        <button nbButton class="mr-1">
+          <nb-icon icon="printer-outline"></nb-icon> 
+        </button>
+        <button nbButton>
+          <nb-icon icon="email-outline"></nb-icon> 
+        </button>
+      </div>
+    </div>
+  </nb-card-header>
+  <div class="row mx-2">
+    <div class="col-12 d-inline-flex flex-nowrap overflow-auto scroll">
+      <nb-card
+        class="station-card m-2"
+        *ngFor="let station of stations"
+        (click)="selectedStationEvent(station)"
+        [class.selected-station]="stationNoSelected == station.stationNo"
+        [ngClass]="{'station-not-default-theme': currentTheme !== 'default' && currentTheme !== 'corporate' && stationNoSelected !== station.stationNo}"
+      >
+        <div class="card-body">
+          <nb-card class="threeshold">Threeshold</nb-card>
+          <p class="station-name">{{ station.stationName }}</p>
+          <h4 style="margin: 0 0 0 3px">0.36</h4>
+        </div>
+      </nb-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-xxl-6">
+      <ng2-smart-table [settings]="leftTableSettings" [source]="leftSource" (rowSelect)="loadRightData($event)">
+      </ng2-smart-table>
+    </div>
+    <div class="col-12 col-xxl-6">
+      <ng2-smart-table [settings]="rightTableSettings" [source]="rightSource" (rowSelect)="calDuration($event)">
+      </ng2-smart-table>
+      <div class="d-flex justify-content-between">
+        <p><strong>Total</strong></p>
+        <p style="margin-right: 30px;"><strong>{{totalDuration}}</strong></p>
+      </div>
+    </div>
+  </div>
+</nb-card>

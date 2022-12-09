@@ -1,0 +1,22 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row user-card" *ngFor="let user of onlines" (click)="onItemClick(user.operatorID)">
+      <div class="col-6 col-xs-12 text-center">
+        <img
+          height="100"
+          width="100"
+          class="card-img-left img-thumbnail rounded"
+          src="../../../../assets/images/alan.png"
+          alt="Card image cap"
+        />
+        <h6>User name: {{user.operatorID}}</h6>
+      </div>
+      <div class="col-6 col-xs-12">
+        <p>Item No: {{user.itemno}}</p>
+        <p>Station Name: {{user.stationName}}</p>
+        <p>Time: {{user.duration}}</p>
+        <p>Job No: {{user.jobno}}</p>
+      </div>
+    </div>
+  </div>
+</div>

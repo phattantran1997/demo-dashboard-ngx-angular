@@ -1,0 +1,91 @@
+<nb-card>
+  <nb-card-header> 
+    <div class="row">
+      <div class="col-8 col-xl-6 col-lg-6 col-md-6 col-sm-4 align-self-center">
+        Jobtiming
+      </div>
+
+      <div class="col-4 col-xl-6 col-lg-6 col-md-6 col-sm-8 text-right">
+        <button nbButton class="mr-3 button-box"><nb-icon icon="cast-outline">
+        </nb-icon> 
+          <span class="primary-color">CASTING</span>
+        </button>
+        <button nbButton class="button-box" (click)="filterRangeDate()">
+          <nb-icon icon="sync"></nb-icon> 
+          <span class="primary-color">REFRESH</span>
+        </button>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-header class="two-inputs row justify-content-end border-bottom-0">
+    <div class="row overflow-hidden">
+      <div class="col-6 p-0">
+        <div class="date-picker">
+          Start
+          <nb-icon icon="calendar-outline"></nb-icon>|&nbsp;
+        </div>
+        <input
+          class="w-90 pl-6r"
+          nbInput
+          placeholder="Pick Date"
+          [nbDatepicker]="fromdatecontrol"
+          [(ngModel)]="fromDateControl"
+        />
+        <nb-datepicker #fromdatecontrol></nb-datepicker>
+      </div>
+      <div class="col-6 p-0">
+        <div class="date-picker">
+        End
+        <nb-icon icon="calendar-outline"></nb-icon>|&nbsp;
+        </div>
+        <input
+          class="w-90 pl-6r"
+          nbInput
+          placeholder="Form Picker"
+          [nbDatepicker]="todatecontrol"
+          [(ngModel)]="toDateControl"
+        />
+        <nb-datepicker #todatecontrol></nb-datepicker>
+      </div>
+
+      <!-- <div class="col-2 p-0">
+        <button nbButton (click)="filterRangeDate()">Filter</button>
+      </div> -->
+    </div>
+  </nb-card-header>
+  <nb-card-header class="card-header-box">
+    <div class="row">
+      <div class="col-2 col-xl-3 col-lg-3 col-md-3 col-sm-4 align-self-center">
+        <h5>Total Metal SQM</h5>
+      </div>
+
+      <div class="col-10 col-xl-9 col-lg-9 col-md-9 col-sm-8">
+        <ngx-station (selectStationEvent)="selectStation($event)" [isHeaderStation]="'true'" [stations]="stations"></ngx-station>
+      </div>
+    </div>
+  </nb-card-header>
+  <nb-card-body class="overflow-hidden">
+    <div class="row m-2 ml-0-important">
+      <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-sm-4 pl-0">
+        <div class="diagonal-container to-left">
+          <h5 class="station-title"><strong>Station</strong></h5>
+          <h5 class="jobs-title"><strong>Jobs</strong></h5>
+         </div>
+      </div>
+      <div class="col-xxl-10 col-xl-9 col-lg-9 col-md-8 col-sm-8 pl-2 pr-0">
+        <ngx-station (selectStationEvent)="selectStation($event)" [stations]="stations"></ngx-station>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xxl-2 col-xl-3 col-lg-3 col-md-4 col-sm-4 pr-2 overflow-auto mh-100">
+        <ngx-job (selectJobEvent)="selectJob($event)" [m2data]="m2data" class="border-0"></ngx-job>
+      </div>
+      <div class="col-xxl-10 col-xl-9 col-lg-9 col-md-8 col-sm-8 overflow-auto mh-100">
+        <ng2-smart-table
+          [settings]="settings"
+          [source]="source">
+        </ng2-smart-table>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>

@@ -1,0 +1,34 @@
+<nb-card size="giant">
+  <nb-card-header>Employee
+
+     <div >
+
+    <input
+      class="w-90 pl-6r"
+      nbInput
+      placeholder="Pick Date"
+      [nbDatepicker]="fromdatecontrol"
+      [(ngModel)]="fromDateControl"
+    />
+    <nb-datepicker #fromdatecontrol></nb-datepicker>
+    <button nbButton class="button-box" (click)="refresh()">
+      <nb-icon icon="sync"></nb-icon> 
+      <span class="primary-color">REFRESH</span>
+    </button>
+  </div>
+  </nb-card-header>
+ 
+  <nb-card-body>
+   
+    <div class="row">
+      <div class="col-6 col-xs-12">
+        <h3 class="text-center">Online<span class="logged-in">●</span></h3>
+        <ngx-online [onlines]="onlines" [date]="fromdatecontrol"></ngx-online>
+      </div>
+      <div class="col-6 col-xs-12">
+        <h3 class="text-center">Offline<span class="logged-out">●</span></h3>
+        <ngx-offline [offlines]="offlines"></ngx-offline>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
